@@ -10,7 +10,7 @@ gcloud config set project finn-partners-target
 gcloud iam service-accounts create Finn-Partners-Target --project=finn-partners-target
 
 # Add IAM policy binding to the project
-gcloud projects add-iam-policy-binding finn-partners-target --member="serviceAccount:Finn-Partners-Target@finn-partners-source.iam.gserviceaccount.com" --role="roles/owner"
+gcloud projects add-iam-policy-binding finn-partners-target --member="serviceAccount:Finn-Partners-Target@finn-partners-target.iam.gserviceaccount.com" --role="roles/owner"
 
 # Get the unique ID of the service account
 gcloud iam service-accounts describe Finn-Partners-Target@finn-partners-target.iam.gserviceaccount.com --project=finn-partners-target --format="value(uniqueId)"
