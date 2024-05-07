@@ -1,25 +1,25 @@
 #!/bin/bash
 
 # Create a new Google Cloud project
-gcloud projects create finn-partners-target --name="Finn-Partners-Target"
+gcloud projects create avenue z-target --name="Avenue Z-Target"
 
 # Set the current Google Cloud project
-gcloud config set project finn-partners-target
+gcloud config set project avenue z-target
 
 # Create a new service account
-gcloud iam service-accounts create Finn-Partners-Target --project=finn-partners-target
+gcloud iam service-accounts create Avenue Z-Target --project=avenue z-target
 
 # Add IAM policy binding to the project
-gcloud projects add-iam-policy-binding finn-partners-target --member="serviceAccount:Finn-Partners-Target@finn-partners-target.iam.gserviceaccount.com" --role="roles/owner"
+gcloud projects add-iam-policy-binding avenue z-target --member="serviceAccount:Avenue Z-Target@avenue z-target.iam.gserviceaccount.com" --role="roles/editor"
 
 # Get the unique ID of the service account
-gcloud iam service-accounts describe Finn-Partners-Target@finn-partners-target.iam.gserviceaccount.com --project=finn-partners-target --format="value(uniqueId)"
+gcloud iam service-accounts describe Avenue Z-Target@avenue z-target.iam.gserviceaccount.com --project=avenue z-target --format="value(uniqueId)"
 
 # Create a service account key and save it to a JSON file
-gcloud iam service-accounts keys create Finn-Partners-Target.json --iam-account=Finn-Partners-Target@finn-partners-target.iam.gserviceaccount.com --project=finn-partners-target
+gcloud iam service-accounts keys create Avenue Z-Target.json --iam-account=Avenue Z-Target@avenue z-target.iam.gserviceaccount.com --project=avenue z-target
 
 # Enable necessary Google services
-gcloud services enable admin.googleapis.com drive.googleapis.com gmail.googleapis.com calendar-json.googleapis.com people.googleapis.com tasks.googleapis.com forms.googleapis.com groupsmigration.googleapis.com vault.googleapis.com storage-component.googleapis.com --project=finn-partners-target
+gcloud services enable drive.googleapis.com sheets.googleapis.com admin.googleapis.com people.googleapis.com contacts.googleapis.com migrate.googleapis.com gmail.googleapis.com calendar-json.googleapis.com groupsmigration.googleapis.com groupssettings.googleapis.com tasks.googleapis.com --project=avenue z-target
 
 # Download the service account key JSON file
-cloudshell download Finn-Partners-Target.json
+cloudshell download Avenue Z-Target.json
