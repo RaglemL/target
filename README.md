@@ -1,1 +1,1 @@
-Initial content for source file
+Initial content for target file
