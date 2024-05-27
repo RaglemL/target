@@ -44,3 +44,18 @@ sleep 5 # Adding a delay of 5 seconds
 # Enable the constraint iam.disableServiceAccountKeyCreation enforcement
 gcloud resource-manager org-policies enable-enforce iam.disableServiceAccountKeyCreation --organization=605938502182
 sleep 5 # Adding a delay of 5 seconds
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
