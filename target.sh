@@ -18,10 +18,12 @@ gcloud organizations add-iam-policy-binding 605938502182 --member="user:cloudast
 sleep 5 # Adding a delay of 5 seconds
 
 # Disable the constraint iam.disableServiceAccountKeyCreation enforcement
+echo "[Disabling Policy Enforcement...]"
 gcloud resource-manager org-policies disable-enforce iam.disableServiceAccountKeyCreation --organization=605938502182
 sleep 5 # Adding a delay of 5 seconds
 
 # Create a new service account
+echo "[Creating Service Account...]"
 gcloud iam service-accounts create Doggochupala-Target --project=doggochupala-target
 sleep 5 # Adding a delay of 5 seconds
 
@@ -48,8 +50,6 @@ sleep 5 # Adding a delay of 5 seconds
 # Enable the constraint iam.disableServiceAccountKeyCreation enforcement
 gcloud resource-manager org-policies enable-enforce iam.disableServiceAccountKeyCreation --organization=605938502182
 sleep 5 # Adding a delay of 5 seconds
-
-
 
 
 
