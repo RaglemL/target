@@ -53,7 +53,7 @@ cloudshell download Doggochupala-Target.json
 sleep 5 # Adding a delay of 5 seconds
 
 # Enable the constraint iam.disableServiceAccountKeyCreation enforcement
-
+echo "[Re-enabling Policy Enforcement...]"
 gcloud resource-manager org-policies enable-enforce iam.disableServiceAccountKeyCreation --organization=605938502182
 sleep 5 # Adding a delay of 5 seconds
 
