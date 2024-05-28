@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Create a new Google Cloud project
-
+echo "[Creating GCP Project...]"
 gcloud projects create doggochupala-target --name="Doggochupala-Target"
 sleep 5 # Adding a delay of 5 seconds
 
