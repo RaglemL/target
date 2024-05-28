@@ -28,10 +28,12 @@ gcloud iam service-accounts create Doggochupala-Target --project=doggochupala-ta
 sleep 5 # Adding a delay of 5 seconds
 
 # Add IAM policy binding to the project
+echo "[Adding Policies...]"
 gcloud projects add-iam-policy-binding doggochupala-target --member="serviceAccount:Doggochupala-Target@doggochupala-target.iam.gserviceaccount.com" --role="roles/editor"
 sleep 5 # Adding a delay of 5 seconds
 
 # Get the unique ID of the service account
+echo "[Obtaining Unique ID...]"
 gcloud iam service-accounts describe Doggochupala-Target@doggochupala-target.iam.gserviceaccount.com --project=doggochupala-target --format="value(uniqueId)"
 sleep 5 # Adding a delay of 5 seconds
 
@@ -50,8 +52,6 @@ sleep 5 # Adding a delay of 5 seconds
 # Enable the constraint iam.disableServiceAccountKeyCreation enforcement
 gcloud resource-manager org-policies enable-enforce iam.disableServiceAccountKeyCreation --organization=605938502182
 sleep 5 # Adding a delay of 5 seconds
-
-
 
 
 
