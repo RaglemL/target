@@ -11,8 +11,9 @@ gcloud config set project doggochupala-target
 sleep 5 # Adding a delay of 5 seconds
 
 # Provide yourself Organization Policy Administrator and Project Creator roles
-
+echo "[Assigning Roles...]"
 gcloud organizations add-iam-policy-binding 605938502182 --member="user:cloudasta@go-rollingsuds.net" --role="roles/orgpolicy.policyAdmin"
+sleep 5 # Adding a delay of 5 seconds
 gcloud organizations add-iam-policy-binding 605938502182 --member="user:cloudasta@go-rollingsuds.net" --role="roles/resourcemanager.projectCreator"
 sleep 5 # Adding a delay of 5 seconds
 
@@ -47,7 +48,6 @@ sleep 5 # Adding a delay of 5 seconds
 # Enable the constraint iam.disableServiceAccountKeyCreation enforcement
 gcloud resource-manager org-policies enable-enforce iam.disableServiceAccountKeyCreation --organization=605938502182
 sleep 5 # Adding a delay of 5 seconds
-
 
 
 
