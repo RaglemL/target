@@ -38,24 +38,24 @@ gcloud iam service-accounts describe Doggochupala-Target@doggochupala-target.iam
 sleep 5 # Adding a delay of 5 seconds
 
 # Create a service account key and save it to a JSON file
+echo "[Creating JSON Key...]"
 gcloud iam service-accounts keys create Doggochupala-Target.json --iam-account=Doggochupala-Target@doggochupala-target.iam.gserviceaccount.com --project=doggochupala-target
 sleep 5 # Adding a delay of 5 seconds
 
 # Enable necessary Google services
+echo "[Enabling APIs...]"
 gcloud services enable drive.googleapis.com sheets.googleapis.com admin.googleapis.com people.googleapis.com contacts.googleapis.com migrate.googleapis.com gmail.googleapis.com calendar-json.googleapis.com groupsmigration.googleapis.com groupssettings.googleapis.com tasks.googleapis.com forms.googleapis.com vault.googleapis.com storage-component.googleapis.com --project=doggochupala-target
 sleep 5 # Adding a delay of 5 seconds
 
 # Download the service account key JSON file
+echo "[Downloading JSON Key...]"
 cloudshell download Doggochupala-Target.json
 sleep 5 # Adding a delay of 5 seconds
 
 # Enable the constraint iam.disableServiceAccountKeyCreation enforcement
+
 gcloud resource-manager org-policies enable-enforce iam.disableServiceAccountKeyCreation --organization=605938502182
 sleep 5 # Adding a delay of 5 seconds
-
-
-
-
 
 
 
