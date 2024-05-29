@@ -57,6 +57,7 @@ echo "[Re-enabling Policy Enforcement...]"
 gcloud resource-manager org-policies enable-enforce iam.disableServiceAccountKeyCreation --organization=210233693604
 sleep 5 # Adding a delay of 5 seconds
 
-
-
-
+# Tasks completed confirmation
+echo "[All tasks completed.]"
+sleep 5 # Adding a delay of 5 seconds
+echo "Script created by Luis Melgar."
