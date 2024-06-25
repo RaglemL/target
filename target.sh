@@ -2,12 +2,12 @@
 
 # Create a new Google Cloud project
 echo "[Creating GCP Project...]"
-gcloud projects create supplypointemail-target --name="Supplypointemail-Target"
+gcloud projects create launchpadhomegroup-target --name="Launchpadhomegroup-Target"
 sleep 5 # Adding a delay of 5 seconds
 
 # Set the current Google Cloud project
 echo "[Setting up GCP Project...]"
-gcloud config set project supplypointemail-target
+gcloud config set project launchpadhomegroup-target
 sleep 5 # Adding a delay of 5 seconds
 
 # Provide yourself Organization Policy Administrator and Project Creator roles
@@ -24,32 +24,32 @@ sleep 60 # Adding a delay of 60 seconds to allow propagation
 
 # Create a new service account
 echo "[Creating Service Account...]"
-gcloud iam service-accounts create Supplypointemail-Target --project=supplypointemail-target
+gcloud iam service-accounts create Launchpadhomegroup-Target --project=launchpadhomegroup-target
 sleep 5 # Adding a delay of 5 seconds
 
 # Add IAM policy binding to the project
 echo "[Adding Policies...]"
-gcloud projects add-iam-policy-binding supplypointemail-target --member="serviceAccount:Supplypointemail-Target@supplypointemail-target.iam.gserviceaccount.com" --role="roles/editor"
+gcloud projects add-iam-policy-binding launchpadhomegroup-target --member="serviceAccount:Launchpadhomegroup-Target@launchpadhomegroup-target.iam.gserviceaccount.com" --role="roles/editor"
 sleep 5 # Adding a delay of 5 seconds
 
 # Get the unique ID of the service account
 echo "[Obtaining Unique ID...]"
-gcloud iam service-accounts describe Supplypointemail-Target@supplypointemail-target.iam.gserviceaccount.com --project=supplypointemail-target --format="value(uniqueId)"
+gcloud iam service-accounts describe Launchpadhomegroup-Target@launchpadhomegroup-target.iam.gserviceaccount.com --project=launchpadhomegroup-target --format="value(uniqueId)"
 sleep 5 # Adding a delay of 5 seconds
 
 # Create a service account key and save it to a JSON file
 echo "[Creating JSON Key...]"
-gcloud iam service-accounts keys create Supplypointemail-Target.json --iam-account=Supplypointemail-Target@supplypointemail-target.iam.gserviceaccount.com --project=supplypointemail-target
+gcloud iam service-accounts keys create Launchpadhomegroup-Target.json --iam-account=Launchpadhomegroup-Target@launchpadhomegroup-target.iam.gserviceaccount.com --project=launchpadhomegroup-target
 sleep 5 # Adding a delay of 5 seconds
 
 # Enable necessary Google services
 echo "[Enabling APIs...]"
-gcloud services enable drive.googleapis.com sheets.googleapis.com admin.googleapis.com people.googleapis.com contacts.googleapis.com migrate.googleapis.com gmail.googleapis.com calendar-json.googleapis.com groupsmigration.googleapis.com groupssettings.googleapis.com tasks.googleapis.com forms.googleapis.com vault.googleapis.com storage-component.googleapis.com --project=supplypointemail-target
+gcloud services enable drive.googleapis.com sheets.googleapis.com admin.googleapis.com people.googleapis.com contacts.googleapis.com migrate.googleapis.com gmail.googleapis.com calendar-json.googleapis.com groupsmigration.googleapis.com groupssettings.googleapis.com tasks.googleapis.com forms.googleapis.com vault.googleapis.com storage-component.googleapis.com --project=launchpadhomegroup-target
 sleep 5 # Adding a delay of 5 seconds
 
 # Download the service account key JSON file
 echo "[Downloading JSON Key...]"
-cloudshell download Supplypointemail-Target.json
+cloudshell download Launchpadhomegroup-Target.json
 sleep 5 # Adding a delay of 5 seconds
 
 # Enable the constraint iam.disableServiceAccountKeyCreation enforcement
