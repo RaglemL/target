@@ -12,9 +12,9 @@ sleep 5 # Adding a delay of 5 seconds
 
 # Provide yourself Organization Policy Administrator and Project Creator roles
 echo "[Assigning Roles...]"
-gcloud organizations add-iam-policy-binding 669748195902 --member="user:migration@legalsoft2.com" --role="roles/orgpolicy.policyAdmin"
+gcloud organizations add-iam-policy-binding 669748195902 --member="user:migration@legalsoft.com" --role="roles/orgpolicy.policyAdmin"
 sleep 5 # Adding a delay of 5 seconds
-gcloud organizations add-iam-policy-binding 669748195902 --member="user:migration@legalsoft2.com" --role="roles/resourcemanager.projectCreator"
+gcloud organizations add-iam-policy-binding 669748195902 --member="user:migration@legalsoft.com" --role="roles/resourcemanager.projectCreator"
 sleep 5 # Adding a delay of 5 seconds
 
 # Disable the constraint iam.disableServiceAccountKeyCreation enforcement
