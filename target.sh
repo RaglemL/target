@@ -2,12 +2,12 @@
 
 # Create a new Google Cloud project
 echo "[Creating GCP Project...]"
-gcloud projects create launchpadhomegroup-target --name="Launchpadhomegroup-Target"
+gcloud projects create launchpad-homegroup-target --name="Launchpad-Homegroup-Target"
 sleep 5 # Adding a delay of 5 seconds
 
 # Set the current Google Cloud project
 echo "[Setting up GCP Project...]"
-gcloud config set project launchpadhomegroup-target
+gcloud config set project launchpad-homegroup-target
 sleep 5 # Adding a delay of 5 seconds
 
 # Provide yourself Organization Policy Administrator and Project Creator roles
@@ -24,32 +24,32 @@ sleep 60 # Adding a delay of 60 seconds to allow propagation
 
 # Create a new service account
 echo "[Creating Service Account...]"
-gcloud iam service-accounts create Launchpadhomegroup-Target --project=launchpadhomegroup-target
+gcloud iam service-accounts create Launchpad-Homegroup-Target --project=launchpad-homegroup-target
 sleep 5 # Adding a delay of 5 seconds
 
 # Add IAM policy binding to the project
 echo "[Adding Policies...]"
-gcloud projects add-iam-policy-binding launchpadhomegroup-target --member="serviceAccount:Launchpadhomegroup-Target@launchpadhomegroup-target.iam.gserviceaccount.com" --role="roles/editor"
+gcloud projects add-iam-policy-binding launchpad-homegroup-target --member="serviceAccount:Launchpad-Homegroup-Target@launchpad-homegroup-target.iam.gserviceaccount.com" --role="roles/editor"
 sleep 5 # Adding a delay of 5 seconds
 
 # Get the unique ID of the service account
 echo "[Obtaining Unique ID...]"
-gcloud iam service-accounts describe Launchpadhomegroup-Target@launchpadhomegroup-target.iam.gserviceaccount.com --project=launchpadhomegroup-target --format="value(uniqueId)"
+gcloud iam service-accounts describe Launchpad-Homegroup-Target@launchpad-homegroup-target.iam.gserviceaccount.com --project=launchpad-homegroup-target --format="value(uniqueId)"
 sleep 5 # Adding a delay of 5 seconds
 
 # Create a service account key and save it to a JSON file
 echo "[Creating JSON Key...]"
-gcloud iam service-accounts keys create Launchpadhomegroup-Target.json --iam-account=Launchpadhomegroup-Target@launchpadhomegroup-target.iam.gserviceaccount.com --project=launchpadhomegroup-target
+gcloud iam service-accounts keys create Launchpad-Homegroup-Target.json --iam-account=Launchpad-Homegroup-Target@launchpad-homegroup-target.iam.gserviceaccount.com --project=launchpad-homegroup-target
 sleep 5 # Adding a delay of 5 seconds
 
 # Enable necessary Google services
 echo "[Enabling APIs...]"
-gcloud services enable drive.googleapis.com sheets.googleapis.com admin.googleapis.com people.googleapis.com contacts.googleapis.com migrate.googleapis.com gmail.googleapis.com calendar-json.googleapis.com groupsmigration.googleapis.com groupssettings.googleapis.com tasks.googleapis.com forms.googleapis.com vault.googleapis.com storage-component.googleapis.com --project=launchpadhomegroup-target
+gcloud services enable drive.googleapis.com sheets.googleapis.com admin.googleapis.com people.googleapis.com contacts.googleapis.com migrate.googleapis.com gmail.googleapis.com calendar-json.googleapis.com groupsmigration.googleapis.com groupssettings.googleapis.com tasks.googleapis.com forms.googleapis.com vault.googleapis.com storage-component.googleapis.com --project=launchpad-homegroup-target
 sleep 5 # Adding a delay of 5 seconds
 
 # Download the service account key JSON file
 echo "[Downloading JSON Key...]"
-cloudshell download Launchpadhomegroup-Target.json
+cloudshell download Launchpad-Homegroup-Target.json
 sleep 5 # Adding a delay of 5 seconds
 
 # Enable the constraint iam.disableServiceAccountKeyCreation enforcement
