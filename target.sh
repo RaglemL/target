@@ -5,24 +5,24 @@ echo "[Creating GCP Project...]"
 gcloud projects create ttbservices-target --name="Ttbservices-Target"
 sleep 5 # Adding a delay of 5 seconds
 
-# Set the new Google Cloud project
+# Set the current Google Cloud project
 echo "[Setting up GCP Project...]"
 gcloud config set project ttbservices-target
 sleep 5 # Adding a delay of 5 seconds
 
-# Granting Organization Policy Administrator and Project Creator roles
+# Provide yourself Organization Policy Administrator and Project Creator roles
 echo "[Assigning Roles...]"
 gcloud organizations add-iam-policy-binding 251589591644 --member="user:cloudasta@ttbservices.com" --role="roles/orgpolicy.policyAdmin"
 sleep 5 # Adding a delay of 5 seconds
 gcloud organizations add-iam-policy-binding 251589591644 --member="user:cloudasta@ttbservices.com" --role="roles/resourcemanager.projectCreator"
 sleep 5 # Adding a delay of 5 seconds
 
-# Disabling the constraint iam.disableServiceAccountKeyCreation enforcement
+# Disable the constraint iam.disableServiceAccountKeyCreation enforcement
 echo "[Disabling Policy Enforcement...]"
 gcloud resource-manager org-policies disable-enforce iam.disableServiceAccountKeyCreation --organization=251589591644
 sleep 60 # Adding a delay of 60 seconds to allow propagation
 
-# Creating a new service account
+# Create a new service account
 echo "[Creating Service Account...]"
 gcloud iam service-accounts create Ttbservices-Target --project=ttbservices-target
 sleep 5 # Adding a delay of 5 seconds
