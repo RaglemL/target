@@ -2,59 +2,59 @@
 
 # Create a new Google Cloud project
 echo "[Creating GCP Project...]"
-gcloud projects create mtgdrive-target --name="Mtgdrive-Target"
+gcloud projects create ttbservices-target --name="Ttbservices-Target"
 sleep 5 # Adding a delay of 5 seconds
 
 # Set the current Google Cloud project
 echo "[Setting up GCP Project...]"
-gcloud config set project mtgdrive-target
+gcloud config set project ttbservices-target
 sleep 5 # Adding a delay of 5 seconds
 
 # Provide yourself Organization Policy Administrator and Project Creator roles
 echo "[Assigning Roles...]"
-gcloud organizations add-iam-policy-binding 845755123396 --member="user:cloudasta@mtgdrive.com" --role="roles/orgpolicy.policyAdmin"
+gcloud organizations add-iam-policy-binding 251589591644 --member="user:cloudasta@ttbservices.com" --role="roles/orgpolicy.policyAdmin"
 sleep 5 # Adding a delay of 5 seconds
-gcloud organizations add-iam-policy-binding 845755123396 --member="user:cloudasta@mtgdrive.com" --role="roles/resourcemanager.projectCreator"
+gcloud organizations add-iam-policy-binding 251589591644 --member="user:cloudasta@ttbservices.com" --role="roles/resourcemanager.projectCreator"
 sleep 5 # Adding a delay of 5 seconds
 
 # Disable the constraint iam.disableServiceAccountKeyCreation enforcement
 echo "[Disabling Policy Enforcement...]"
-gcloud resource-manager org-policies disable-enforce iam.disableServiceAccountKeyCreation --organization=845755123396
+gcloud resource-manager org-policies disable-enforce iam.disableServiceAccountKeyCreation --organization=251589591644
 sleep 60 # Adding a delay of 60 seconds to allow propagation
 
 # Create a new service account
 echo "[Creating Service Account...]"
-gcloud iam service-accounts create Mtgdrive-Target --project=mtgdrive-target
+gcloud iam service-accounts create Ttbservices-Target --project=ttbservices-target
 sleep 5 # Adding a delay of 5 seconds
 
 # Add IAM policy binding to the project
 echo "[Adding Policies...]"
-gcloud projects add-iam-policy-binding mtgdrive-target --member="serviceAccount:Mtgdrive-Target@mtgdrive-target.iam.gserviceaccount.com" --role="roles/editor"
+gcloud projects add-iam-policy-binding ttbservices-target --member="serviceAccount:Ttbservices-Target@ttbservices-target.iam.gserviceaccount.com" --role="roles/editor"
 sleep 5 # Adding a delay of 5 seconds
 
 # Get the unique ID of the service account
 echo "[Obtaining Unique ID...]"
-gcloud iam service-accounts describe Mtgdrive-Target@mtgdrive-target.iam.gserviceaccount.com --project=mtgdrive-target --format="value(uniqueId)"
+gcloud iam service-accounts describe Ttbservices-Target@ttbservices-target.iam.gserviceaccount.com --project=ttbservices-target --format="value(uniqueId)"
 sleep 5 # Adding a delay of 5 seconds
 
 # Create a service account key and save it to a JSON file
 echo "[Creating JSON Key...]"
-gcloud iam service-accounts keys create Mtgdrive-Target.json --iam-account=Mtgdrive-Target@mtgdrive-target.iam.gserviceaccount.com --project=mtgdrive-target
+gcloud iam service-accounts keys create Ttbservices-Target.json --iam-account=Ttbservices-Target@ttbservices-target.iam.gserviceaccount.com --project=ttbservices-target
 sleep 5 # Adding a delay of 5 seconds
 
 # Enable necessary Google services
 echo "[Enabling APIs...]"
-gcloud services enable drive.googleapis.com sheets.googleapis.com admin.googleapis.com people.googleapis.com contacts.googleapis.com migrate.googleapis.com gmail.googleapis.com calendar-json.googleapis.com groupsmigration.googleapis.com groupssettings.googleapis.com tasks.googleapis.com forms.googleapis.com vault.googleapis.com storage-component.googleapis.com chat.googleapis.com --project=mtgdrive-target
+gcloud services enable drive.googleapis.com sheets.googleapis.com admin.googleapis.com people.googleapis.com contacts.googleapis.com migrate.googleapis.com gmail.googleapis.com calendar-json.googleapis.com groupsmigration.googleapis.com groupssettings.googleapis.com tasks.googleapis.com forms.googleapis.com vault.googleapis.com storage-component.googleapis.com chat.googleapis.com --project=ttbservices-target
 sleep 5 # Adding a delay of 5 seconds
 
 # Download the service account key JSON file
 echo "[Downloading JSON Key...]"
-cloudshell download Mtgdrive-Target.json
+cloudshell download Ttbservices-Target.json
 sleep 5 # Adding a delay of 5 seconds
 
 # Enable the constraint iam.disableServiceAccountKeyCreation enforcement
 echo "[Re-enabling Policy Enforcement...]"
-gcloud resource-manager org-policies enable-enforce iam.disableServiceAccountKeyCreation --organization=845755123396
+gcloud resource-manager org-policies enable-enforce iam.disableServiceAccountKeyCreation --organization=251589591644
 sleep 5 # Adding a delay of 5 seconds
 
 # Tasks completed confirmation
